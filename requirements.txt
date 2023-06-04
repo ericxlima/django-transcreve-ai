@@ -1,1 +1,5 @@
 Django==4.2.1
+openai-whisper==20230314
+pytube==15.0.0
+mypy==1.3.0
+flake8==6.0.0
