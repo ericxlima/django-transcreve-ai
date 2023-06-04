@@ -1,0 +1,35 @@
+{% load static %}
+<head>
+  <title>transcreve.ai</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+
+<body>
+  <header>
+    <h1>transcreve.ai</h1>
+  </header>
+  <form method="post" action="{% url 'home' %}">
+    {% csrf_token %}
+    <label for="url">Cole abaixo a URL do Youtube:</label>
+    <input type="text" name="url">
+    <button type="submit">Transcrever</button>
+
+  </form>
+  {% if file_name %}
+    <div class="container">
+        <p>Arquivo baixado: {{ file_name }}</p>
+    </div>
+  {% endif %}
+  {% if lyrics_formatted %}
+  <div class="container">
+    <p class="phrase">
+          {% for line in lyrics_formatted %}
+          {{ line }} <br>
+          {% endfor %}
+        </p>
+      </div>
+  {% endif %}
+    
+</body>
+
+  
